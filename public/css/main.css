@@ -384,21 +384,20 @@ a:hover { text-decoration: underline }
 .trigger {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: medium none;
-    bottom: 0;
-    height: 40px;
-    margin: 10px;
-    outline: medium none;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    right: 0;
-    width: 40px;
 }
-/* Hide the text */
-.trigger span {
-    position: absolute;
-    top: 100%;
+
+.trigger .open-text{
+    display: none;
 }
+
+.trigger-active .open-text {
+    display: inline;
+}
+
+.trigger-active .closed-text {
+    display: none;
+}
+
 .icon rect,
 .icon line {
     stroke: #2098f5;
@@ -535,29 +534,10 @@ a:hover { text-decoration: underline }
 .fa-mbr:hover { color: #31B0E0 }
 /* 
 * ==========================================================================
-        3.3.Our Awesome Team
+        3.3.Registries
 * ========================================================================== 
 */
-.team-member {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px 0;
-    margin: 10px 0;
-}
-.team-member h2 {
-    color: #585858;
-    font-family: latolight;
-    font-size: 1.2em;
-}
-.member-img {
-    display: table;
-    height: 200px;
-    margin: 0 auto;
-    width: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-}
+
 /* 
 * ==========================================================================
         3.4.Contact Form
@@ -672,7 +652,7 @@ a:hover { text-decoration: underline }
         3.5.Google Map
 * ========================================================================== 
 */
-#map-wrapper { height: 440px }
+#map-wrapper { height: 600px }
 /* 
 * ==========================================================================
         3.6.Footer
@@ -936,75 +916,7 @@ a:hover { text-decoration: underline }
     background: #fff url(../img/Preloader.gif) no-repeat center center;
     z-index: 10000;
 }
-/* 
-* ==========================================================================
-    Preloader
-* ========================================================================== 
-*/
-#preload {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    left: 0;
-    top: 0;
-    background: #000;
-    display: none;
-    z-index: 10000;
-}
-#preload-status {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    padding: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    background: #fff url(../img/Preloader.gif) no-repeat center center;
-    opacity: 1;
-    -moz-opacity: 1;
-    -webkit-opacity: 1;
-    filter: alpha(opacity=1);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
-}
-/* preload content */
-.preload-content {
-    position: fixed;
-    width: auto;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: #000;
-    opacity: 0.6;
-    -moz-opacity: 0.6;
-    -webkit-opacity: 0.6;
-    filter: alpha(opacity=1);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
-}
-.preload-content-rain {
-    position: fixed;
-    width: auto;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: #000;
-    opacity: 0.4;
-    -moz-opacity: 0.4;
-    -webkit-opacity: 0.4;
-    filter: alpha(opacity=1);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
-}
+
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:

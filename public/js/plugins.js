@@ -27,8 +27,8 @@
 // -------------------------------------------------------------
 
 $('.countdown').downCount({
-    date: '02/11/2017 16:00:00',
-    offset: +10
+    date: '2/11/2017 16:00:00',
+    offset: -5
 }, function () {
     //alert('WOOT WOOT, done!');
 });
@@ -46,8 +46,8 @@ jQuery(function ($) {
 
     map = new GMaps({
         el: '#map-wrapper',
-        lat: 23.475719, //Replace Here Location Google Map Lat
-        lng: 91.137101, //Replace Here Location Google Map Lng
+        lat: 30.278958,
+        lng: -97.747752,
         scrollwheel:false,
         zoom: 16,
         zoomControl : true,
@@ -58,17 +58,57 @@ jQuery(function ($) {
         clickable: true
     });
 
-    var image = '';
-    map.addMarker({
-        lat: 23.475719, //Replace Here Location Google Map Lat
-        lng: 91.137101, //Replace Here Location Google Map Lat
-        icon: image,
+    var caswellId = "ChIJ8UnnnHO1RIYRVPQ4ShkEPsg";
+    var suitesId = "ChIJ9-avaXW1RIYRjjlM-dATa08";
+    var roomsId = "ChIJ7fCNMCLKRIYRdK6eYV47Z8Y";
+    var allPlaces = [caswellId, suitesId, roomsId];
+    
+    var places = new google.maps.places.PlacesService(map);
+
+    var markPlace = function(placeId){
+        places.getDetails({ placeId: placeId }, 
+            function (result, status) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    place: {
+                        placeId: placeId,
+                        location: result.geometry.location
+                    }
+                });
+            }
+        );
+    }
+
+    allPlaces.forEach(markPlace);
+
+    /*map.addMarker({
+        place: {placeId: "ChIJ8UnnnHO1RIYRVPQ4ShkEPsg"},
+        label: "Caswell House",
         animation: google.maps.Animation.DROP,
         verticalAlign: 'bottom',
         horizontalAlign: 'center',
         backgroundColor: '#d9d9d9',
     });
 
+    map.addMarker({
+        lat: 30.277428,
+        lng: -97.742591,
+        label: "DoubleTree Suites - W 15th St",
+        animation: google.maps.Animation.DROP,
+        verticalAlign: 'bottom',
+        horizontalAlign: 'center',
+        backgroundColor: '#d9d9d9',
+    });
+
+    map.addMarker({
+        lat: 30.277184,
+        lng: -97.729108,
+        label: "DoubleTree - University Area",
+        animation: google.maps.Animation.DROP,
+        verticalAlign: 'bottom',
+        horizontalAlign: 'center',
+        backgroundColor: '#d9d9d9',
+    });*/
 
     var styles = [ 
 
@@ -108,13 +148,13 @@ jQuery(function ($) {
 
     ];
 
-    map.addStyle({
+    /*map.addStyle({
         styledMapName:"Styled Map",
         styles: styles,
         mapTypeId: "map_style"  
     });
 
-    map.setStyle("map_style");
+    //map.setStyle("map_style");*/
 }());
 
 /**
