@@ -24,7 +24,7 @@ Version: 1.0.0
  *         3.Trigger After Content
  *         3.1.Venue
  *         3.2.Hotels
- *         3.3.Our Awesome Team
+ *         3.3.Registries
  *         3.4.Contact Form
  *         3.5.Google Map
  *         3.6.Footer         
@@ -150,6 +150,7 @@ body {
     font-size: 14px;
     margin: 0;
     padding: 0;
+    background-color:#F0F1F5; 
 }
 h1,
 h2,
@@ -235,7 +236,7 @@ p {
     width: 100%;
 }
 .intro {
-    background-image: url(../img/background.jpg); /* Fullscreen Background Image */
+    background-image: url(../img/bernried.jpg);
     background-size: cover;
     background-position: center;
     background-color: #2a2e39;
