@@ -39,12 +39,14 @@ $('.countdown').downCount({
 // -------------------------------------------------------------
 
 jQuery(function ($) {
-    
-    'use strict';
-
     var map;
 
-    map = new GMaps({
+    /*map = new google.maps.Map(document.getElementById('map-wrapper'),{
+        lat: 30.278958,
+        lng: -97.747752,
+    });*/
+
+    /*map = new GMaps({
         el: '#map-wrapper',
         lat: 30.278958,
         lng: -97.747752,
@@ -56,30 +58,60 @@ jQuery(function ($) {
         mapTypeControl: false,
         overviewMapControl: false,
         clickable: true
-    });
+    });*/
 
-    var caswellId = "ChIJ8UnnnHO1RIYRVPQ4ShkEPsg";
-    var suitesId = "ChIJ9-avaXW1RIYRjjlM-dATa08";
-    var roomsId = "ChIJ7fCNMCLKRIYRdK6eYV47Z8Y";
-    var allPlaces = [caswellId, suitesId, roomsId];
+    var allPlaces = {
+        caswell: {
+            location: {
+                lat: 30.278911,
+                lng: -97.747763
+            },
+            placeId: "ChIJ8UnnnHO1RIYRVPQ4ShkEPsg"
+        },
+        suites: {
+            location: {
+                lat: 30.277428,
+                lng: -97.742591
+            },
+            placeId: "ChIJ9-avaXW1RIYRjjlM-dATa08"
+        },
+        rooms: {
+            location: {
+                lat: 30.277184,
+                lng: -97.729108
+            },
+            placeId: "ChIJ7fCNMCLKRIYRdK6eYV47Z8Y"
+        }
+    }
+
+    /*var placeRequestFailures = {};
     
     var places = new google.maps.places.PlacesService(map);
 
     var markPlace = function(placeId){
         places.getDetails({ placeId: placeId }, 
             function (result, status) {
-                var marker = new google.maps.Marker({
-                    map: map,
-                    place: {
-                        placeId: placeId,
-                        location: result.geometry.location
-                    }
-                });
+                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    addMarker({placeId: placeId, location: result.geometry.location})
+                } else {
+
+                }
             }
         );
+    }*/
+
+    function addMarker(place){
+        var marker = new google.maps.Marker({
+            map: map,
+            place: place
+        });
     }
 
-    allPlaces.forEach(markPlace);
+    for(key in allPlaces){
+        //addMarker(allPlaces[key]);
+    }
+
+    //allPlaces.forEach(markPlace);
 
     /*map.addMarker({
         place: {placeId: "ChIJ8UnnnHO1RIYRVPQ4ShkEPsg"},
